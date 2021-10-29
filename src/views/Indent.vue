@@ -1,13 +1,11 @@
 <template>
-  <div>
-
-  </div>
+    <div>
+        <h1>订单组件</h1>
+    </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+
 </script>
 
 <style lang="scss" scoped>
