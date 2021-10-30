@@ -22,7 +22,7 @@
 
             async fetchData(){
                 let {data} = await fetchYule();
-                console.log(data);
+                // console.log(data);
                 this.title = data.title
             }
         },

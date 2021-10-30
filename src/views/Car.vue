@@ -15,7 +15,7 @@
         methods:{
             async carData(){
                 let { data } = await fetchCar();
-                console.log(data);
+                // console.log(data);
                 this.title = data.title
             }
         },

@@ -2,12 +2,12 @@
   <div id="app">
     <div id="nav">
       <!-- 用来导航的 -->
-      <router-link to="/pastime"> 娱乐 </router-link>
-      <router-link to="/military"> 军事 </router-link>
-      <router-link to="/car"> 汽车 </router-link>
-      <!-- <button @click="exit">退出</button> -->
+      <router-link to="/pastime" tag="span"> 娱乐 </router-link>
+      <router-link to="/military" tag="span"> 军事 </router-link>
+      <router-link to="/car" tag="span"> 汽车 </router-link>
+      <button @click="exit" id="exit">退出</button>
       <hr />
-      <router-link to="/user">用户</router-link>
+      <router-link to="/user" tag="span">用户</router-link>
       <hr />
       <!-- <a href="javascript:;" @click="backOne">返回上层</a>
         <a href="javascript:;" @click="backTwo">返回两层</a>
@@ -22,8 +22,29 @@
   </div>
 </template>
 
+<script>
+export default {
+  data() {
+    return {
+      blood: "side",
+    };
+  },
+  methods: {
+    exit(){
+        localStorage.removeItem('token')
+        // location.href = '/login'
+        this.$router.push('/login')
+    }
+  }
+};
+</script>
+
 
 <style lang="less">
+.router-link-active {
+  border: 1px solid rgb(255, 0, 0);
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -72,17 +93,17 @@
 
 .side-enter-to {
   opacity: 1;
-  transform: translate3d(100%, 0, 0);
+  transform: translate3d(0%, 0, 0);
 }
 
 .side-leave {
   opacity: 1;
-  transform: translate3d(100%, 0, 0);
+  transform: translate3d(60%, 0, 0);
 }
 
 .side-leave-to {
   opacity: 0;
-  transform: translate3d(0, 0, 0);
+  transform: translate3d(100%, 0, 0);
 }
 
 .side-enter-active,
@@ -114,5 +135,12 @@
 
 #dong {
   box-shadow: inset 5px 5px 28px rgb(245, 4, 85);
+}
+#exit {
+  width: 60px;
+  height: 30px;
+  background-color:rgba(red, green, blue, .4);
+  border: 0px;
+  color:rgb(162, 0, 255);
 }
 </style>
